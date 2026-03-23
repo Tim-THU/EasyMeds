@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: easymeds
+
+app:
+  consultation:
+    max-question-turns: ${APP_MAX_QUESTION_TURNS:5}
+  deepseek:
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+    api-key: ${DEEPSEEK_API_KEY:}
+    chat-model: ${DEEPSEEK_CHAT_MODEL:deepseek-chat}
+    reasoner-model: ${DEEPSEEK_REASONER_MODEL:deepseek-reasoner}
+    max-tokens:
+      extraction: 600
+      planning: 1200
+  neo4j:
+    uri: ${NEO4J_URI:}
+    username: ${NEO4J_USERNAME:}
+    password: ${NEO4J_PASSWORD:}
+    database: ${NEO4J_DATABASE:neo4j}
+  graph-import:
+    init-on-startup: ${GRAPH_INIT_ON_STARTUP:false}
+    data-url: ${GRAPH_DATA_URL:}
+    data-format: ${GRAPH_DATA_FORMAT:CSV}
+    disease-field: ${GRAPH_DISEASE_FIELD:disease}
+    symptom-field: ${GRAPH_SYMPTOM_FIELD:symptoms}
+    candidate-limit: 5
+    symptom-limit: 8
+
+logging:
+  level:
+    com.timthu.easymeds: INFO
